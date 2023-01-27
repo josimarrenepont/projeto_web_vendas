@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.josimarrenepont.myproject.entities.Product;
 import com.josimarrenepont.myproject.repositories.ProductRepository;
 
-@SuppressWarnings("unused")
+
 @RestController
 @RequestMapping(value = "/products")
 public class ProductResource {
@@ -28,7 +28,7 @@ public class ProductResource {
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Product> findById(@PathVariable Long id) {
-		Product cat = categoryRepository.findById(id);
+		Product cat = categoryRepository.findById(id).get();
 		return ResponseEntity.ok().body(cat);
 	}
 }

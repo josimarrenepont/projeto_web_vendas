@@ -7,13 +7,22 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+@Entity
 public class Category implements Serializable{
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String name;
 	
+	
 	@JsonIgnore
+	@OneToMany(mappedBy = "category")
 	private List<Product> products = new ArrayList<>();
 	
 	public Category() {
