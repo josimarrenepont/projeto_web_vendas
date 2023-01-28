@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.josimarrenepont.myproject.entities.Category;
 import com.josimarrenepont.myproject.repositories.CategoryRepository;
 
-
 @RestController
 @RequestMapping(value = "/categories")
 public class CategoryResource {
@@ -30,5 +29,5 @@ public class CategoryResource {
 	public ResponseEntity<Category> findById(@PathVariable Long id) {
 		Category cat = categoryRepository.findById(id).get();
 		return ResponseEntity.ok().body(cat);
-	}
+	} 
 }
